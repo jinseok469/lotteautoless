@@ -1,101 +1,74 @@
+'use client'
+import { useRef } from 'react';
 import Image from "next/image";
-
+import logo from "/assets/lotte-logo.png";
+import call from "/assets/lotte-call.png";
+import oneton from "/assets/oneton-car.png";
+import twoton from "/assets/twoton-car.png";
+import onetonteuk from "/assets/onetonteuk-car.png";
+import electtronic from "/assets/electronic-car.png";
+    import stuff from "/assets/stuff-info.png";
+    import popular from "/assets/popular.png";
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const scrollNext = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 220, behavior: 'smooth' }); // 카드 너비 + gap
+    }
+  };
+  return (
+    <div className="bg-[#FFFFFF] min-h-screen">
+      <div>
+      <div className="fixed h-[138px] top-0 left-1/2 transform -translate-x-1/2 w-full max-w-[430px] z-10 pt-[60px] pb-[16px] px-[16px] flex justify-between items-center bg-[#FFFFFF] border-b border-[#EFF0F0]">
+
+        <div> <Image src={logo} alt="lotte-logo" width={218} height={24} /></div>
+        <button> <div className="text-[12px] font-[500] text-[#E60012] flex flex-col items-center"><Image src={call} alt="lotte-call" width={40} height={40} />전화상담</div></button>
+      </div>
+      <div className=" pt-[138px]">
+      <div className="py-[24px] px-[16px] bg-[#FFFFFF] border-b border-[#EFF0F0] flex justify-around gap-[12px]">
+        <div className="flex flex-col items-center gap-[12px]"><button><Image src={oneton} alt="1톤" width={68} height={68}></Image></button><span className="text-[14px] font-[600] text-[#000000]">1톤</span></div>
+        <div className="flex flex-col items-center gap-[12px]"><button><Image src={onetonteuk} alt="1톤특장" width={68} height={68}></Image></button><span className="text-[14px] font-[600] text-[#000000]">1톤 특장</span></div>
+        <div className="flex flex-col items-center gap-[12px]"><button><Image src={twoton} alt="2톤" width={68} height={68}></Image></button><span className="text-[14px] font-[600] text-[#000000]">2톤 이상</span></div>
+        <div className="flex flex-col items-center gap-[12px]"><button><Image src={electtronic} alt="전기차" width={68} height={68}></Image></button><span className="text-[14px] font-[600] text-[#000000]">전기</span></div>
+        <div className="flex flex-col items-center gap-[12px]"><button><Image src={stuff} alt="상품안내" width={68} height={68}></Image></button><span className="text-[14px] font-[600] text-[#000000]">상품안내</span></div>
+      </div>
+      </div>
+      </div>
+      <div className="h-[10px] bg-[#F9FAFB] "></div>
+      <div className="bg-[#FFFFFF] px-[16px] py-[40px]">
+        <div className="text-[#E60012] font-[500] text-[16px] mb-[8px]">롯데오토리스만의</div>
+        <div className="text-[22px] text-[#000000] font-[700]">추천 인기 차종 5선</div>
+        <div className="relative">
+        {/* 스크롤 영역 */}
+        <div
+          ref={scrollRef}
+          className="flex gap-[12px] overflow-x-auto scroll-smooth no-scrollbar"
+        >
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="flex-none w-[208px] flex flex-col gap-[12px] bg-white">
+              <Image src={popular} alt={`popular-${i}`} width={208} height={140} />
+              <div className="font-[500] text-[14px] text-[#22262A] leading-snug">
+                PORTER (L)2.5T 1톤 초장축 슈퍼캡 스마트 2WD
+              </div>
+              <div className="text-[#22262A] text-[16px] flex items-center gap-[4px]">
+                <span>월</span>
+                <span className="text-[22px] font-bold text-black">999,999</span>
+                <span>원</span>
+              </div>
+            </div>
+          ))}
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* 오른쪽 버튼 */}
+        <button
+          onClick={scrollNext}
+          className="absolute top-1/2 right-0 -translate-y-1/2 bg-white shadow-md rounded-full p-2"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          ▶
+        </button>
+      </div>
+      </div>
     </div>
   );
 }
