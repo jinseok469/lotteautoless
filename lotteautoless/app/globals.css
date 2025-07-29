@@ -12,6 +12,7 @@
   width: 100vw;
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #ffffff;
@@ -23,6 +24,11 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-user-select: none; /* iOS Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Chrome, Edge, Opera */
+  -webkit-touch-callout: none; /* iOS Safari - 길게 눌러 복사 방지 */
 }
 
 @layer utilities {
@@ -30,3 +36,14 @@ body {
     text-wrap: balance;
   }
 }
+
+/* 스크롤바 숨기기 (모든 브라우저 공통 대응) */
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE, Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
