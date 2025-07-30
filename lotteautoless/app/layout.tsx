@@ -24,11 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
         className={` ${Pretendard.variable} font-sans antialiased`}
       >
-        {children}
+        <div id="__next">{children}</div>
       </body>
     </html>
   );

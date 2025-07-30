@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Modal from 'react-modal';
 
 const DeepLookModal = ({
@@ -9,12 +9,20 @@ const DeepLookModal = ({
   isOpen: boolean;
   onRequestClose: () => void;
 }) => {
+  
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      Modal.setAppElement("#__next");
+    }
+  }, []);
+  
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel="상세 견적"
       ariaHideApp={false}
+      shouldFocusAfterRender={false}
+      contentLabel="상세 견적"
       style={{
         content: {
           top: '50%',
@@ -27,7 +35,6 @@ const DeepLookModal = ({
           maxHeight: '90vh',
           borderRadius: '20px',
           padding: '24px',
-          overflow: 'hidden', // 외부 스크롤 방지
           display: 'flex',
           flexDirection: 'column',
           position: 'relative',

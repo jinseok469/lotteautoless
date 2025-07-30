@@ -157,12 +157,12 @@ export default function Home() {
   
 
   return (
-    <div className="bg-white h-screen overflow-y-auto scrollbar-none">
+    <div className="bg-white min-h-screen overflow-y-auto scrollbar-none">
       {/* 고정 헤더 + 메뉴 통합 */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] z-10 bg-white">
         {/* 헤더 */}
         <div className="pt-[60px] pb-[16px] px-[16px] flex justify-between items-center">
-          <button>
+            <button onClick={() =>     router.push("/")}> 
           <Image src={logo} alt="lotte-logo" width={218} height={24} />
           </button>
           <button>

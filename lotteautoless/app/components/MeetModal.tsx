@@ -1,6 +1,6 @@
 'use client';
 import Modal from 'react-modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import SuccessModal from './SuccessModal';
 
 
@@ -24,11 +24,25 @@ const MeetModal = ({ isOpen, onRequestClose }: ConsultModalProps) => {
     setAgree3(newValue);
   };
 
+  useEffect(() => {
+    if (!agree1 || !agree2 || !agree3) {
+      setAgreeAll(false);
+    }
+  }, [agree1,agree2,agree3]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      Modal.setAppElement("#__next");
+    }
+  }, []);
+
+  
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       ariaHideApp={false}
+      shouldFocusAfterRender={false}
       contentLabel="상담 문의"
       overlayClassName="fixed inset-0 bg-black bg-opacity-50 z-50"
       className="scrollbar-none max-w-[500px] w-[90%] max-h-[90vh] overflow-y-auto bg-[#F9FAFB] p-[24px] rounded-[16px] mx-auto mt-[5vh] focus:outline-none"
