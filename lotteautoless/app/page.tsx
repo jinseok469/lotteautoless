@@ -200,7 +200,7 @@ export default function Home() {
       <div className="pt-[300px]" />
 
       {/* 본문 */}
-      <div className="pt-[40px] pr-[16px] pb-[40px] pl-[16px] relative max-w-[430px] mx-auto">
+      <div className="pt-[40px] pr-[16px] pb-[10px] pl-[16px] relative max-w-[430px] mx-auto">
         <div className="text-[16px] font-[500] text-[#E60012] mb-[8px]">롯데오토리스만의</div>
         <div className="text-[#000000] font-[700] text-[22px] mb-[10px]">추천 인기 차종 5선</div>
 
