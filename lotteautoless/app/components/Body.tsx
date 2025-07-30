@@ -1,19 +1,17 @@
-import { useEffect } from "react";
-import footer from "/assets/footer.png";
 import Image from "next/image";
+import body from "/assets/body.png";
+import { useEffect } from "react";
 
-const Footer = () => {
+export default function Body() {
     useEffect(() => {
         const handleContextMenu = (e: MouseEvent) => e.preventDefault();
         document.addEventListener('contextmenu', handleContextMenu);
         return () => document.removeEventListener('contextmenu', handleContextMenu);
       }, []);
     
-    return (
-        <div className="pb-[56px]">
-            <Image src={footer} alt="footer" width={420} height={1516} />
-        </div>
-    )
+  return (
+    <div>
+    <Image src={body} alt="body" width={420} height={4269.33} />
+    </div>
+  );
 }
-
-export default Footer;

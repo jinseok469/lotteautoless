@@ -22,7 +22,11 @@ import Footer from "./components/Footer";
 import BottomBar from "./components/BottomBar";
 import { useRouter } from "next/navigation";
 import Keyward from "./components/Keyward";
-
+import bongo from "/assets/bongo.png";
+import parsive from "/assets/parsive.png";
+import tarsman_two from "/assets/tarsman-two.png";
+import staria from "/assets/staria.png";
+import porter_two from "/assets/porter_two.png";
 const reviews = [
   {
     name: '김** 고객님',
@@ -51,7 +55,56 @@ const reviews = [
     text:
       '이미 다른 업체 통해서 포터를 운용하고 있었는데 이전과 동일한 옵션에 정비 서비스까지 포함됐는데도 리스료가 훨씬 저렴해져서 놀랐어요.',
   },
+  {
+    name: '최** 고객님',
+    model: '스타리아',
+    location: '서울',
+    date: '25.07.17',
+    image: staria,
+    text:
+      '팀 단위 움직일 수 있도록 9인승 스타리아가 필요했는데 일반 영업점보다 진행 과정이 더 빠르고 간결한 느낌이었어요. 원하는 옵션이며 친절한 상담에 너무 만족스러웠습니다.',
+  },
 ];
+
+const reviews_2 =[
+  {
+    name: '정** 고객님',
+    model: '봉고',
+    location: '강원',
+    date: '25.07.17',
+    image: bongo,
+    text:
+      '급하게 차량이 필요했고, 저렴하게 사는 건 반쯤 포기하고 있었는데 미리 잡아둔 신차 물량 안에서 원하는 차량을 싸게 골라 타는 느낌이라 저 같은 사람한테는 정말 최고의 서비스였던 것 같아요.',
+  },
+  {
+    name: '이** 고객님',
+    model: '파시브',
+    location: '충북',
+    date: '25.07.17',
+    image: parsive,
+    text:
+      '비용 절감이나 여러 측면에서 봤을 때 리스 구매가 필요했고 주변에서 추천해 준 롯데오토리스 통해서 파시브 차량 출고했어요.',
+  },
+  {
+    name: '홍** 고객님',
+    model: '타스만',
+    location: '경기',
+    date: '25.07.17',
+    image: tarsman_two,
+    text:
+      '어딜 가도 최소 한 달은 넘게 기다릴 생각 하고 있었는데.. 견적은 제일 저렴한데 출고는 가장 빠른..ㅋㅋ 덕분에 너무 잘 타고 있습니다!',
+  },
+  {
+    name: '서** 고객님',
+    model: '포터',
+    location: '경기',
+    date: '25.07.17',
+    image: porter_two ,
+    text:
+      '확실히 특장차를 전문으로 다루다보니 제가 가진 고민에 딱 맞는 차량을 추천하고, 유리한 조건으로 정돈해주셔서 바로 진행해버렸습니다. 전문가 상담이라는 게 확실히 이런게 장점인 듯 해요.',
+  },
+]
+
 
   
     
@@ -60,7 +113,6 @@ export default function Home() {
   const [showLeftButton, setShowLeftButton] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
-
   useEffect(() => {
     const handleContextMenu = (e: MouseEvent) => e.preventDefault();
     document.addEventListener('contextmenu', handleContextMenu);
@@ -105,9 +157,9 @@ export default function Home() {
   
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white h-screen overflow-y-auto scrollbar-none">
       {/* 고정 헤더 + 메뉴 통합 */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-10 bg-white">
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[420px] z-10 bg-white">
         {/* 헤더 */}
         <div className="pt-[60px] pb-[16px] px-[16px] flex justify-between items-center">
           <button>
@@ -131,7 +183,7 @@ export default function Home() {
             { src: stuff, label: "상품안내" },
           ].map((item, index) => (
             <div key={index} className="flex flex-col items-center gap-[12px]">
-              <button>
+              <button onClick={() => item.label === "상품안내" ? router.push("/product-info") : null}>
               {!isScrolled && (
           <Image src={item.src} alt={item.label} width={68} height={68} />
         )}
@@ -178,7 +230,7 @@ export default function Home() {
         vertical={false}
       >
             {[...Array(5)].map((_, i) => (
-              <button
+              <button  onClick={()=>router.push("/product")}
                 key={i}
                 className="flex-shrink-0 h-[228px] w-[208px] flex flex-col  bg-white rounded-md text-left"
               >
@@ -279,7 +331,7 @@ export default function Home() {
   ))}
 </Marquee>
 <Marquee speed={50} gradient={false} direction="right">
-  {reviews.map((item, i) => (
+  {reviews_2.map((item, i) => (
     <div
       key={i}
       className="bg-[#FEF6F6] h-[136px] max-w-[480px] flex-shrink-0 rounded-xl border border-[#FBE9EB] p-[24px] flex gap-[24px] mx-[8px]"
@@ -307,9 +359,9 @@ export default function Home() {
 </Marquee>
 </div>
         </div>
-        <div className="mb-[40px]"><Footer></Footer></div>
-        <div><BottomBar></BottomBar></div>
         </div>
+        <div className="pb-[81px] bg-[#F9FAFB]"><Footer></Footer></div>
+        <div ><BottomBar></BottomBar></div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ const Search2 = () =>{
     const router = useRouter();
     return <div>
         <div className="fixed max-w-[420px] mx-auto w-full z-50 bg-white">
-         <div className="flex gap-[12px] items-center pt-[56px] pb-[8px] px-[16px] "><button onClick={() => router.push("/")} className="text-[25px]  text-black">←</button><div className="relative flex-1"><input type="text" placeholder="차량명을 검색해보세요" className="w-full h-[48px] rounded-md border border-[#FADBDE] pl-[16px] pr-[40px] py-[16px] text-[16px] font-[500] text-[#636B74]" />
+         <div className="flex gap-[12px] items-center pt-[56px] pb-[8px] px-[16px] "><button onClick={() => router.back()} className="text-[25px]  text-black">←</button><div className="relative flex-1"><input type="text" placeholder="차량명을 검색해보세요" className="w-full h-[48px] rounded-md border border-[#FADBDE] pl-[16px] pr-[40px] py-[16px] text-[16px] font-[500] text-[#636B74]" />
           <button className="absolute right-[12px] top-1/2 -translate-y-1/2 z-0">
     <Image src={search} alt="search" width={18} height={18} />
   </button></div>

@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #ffffff;
-  max-width: 430px;
+  max-width: 420px;
   margin: 0 auto;
   padding: 0 0px;
   height: 100vh;
@@ -17,6 +17,39 @@
   :root {
     --background: #ffffff;
     --foreground: #ffffff;
+  }
+}
+
+.swal2-close {
+  color: #000000 !important;    /* 원하는 색상으로 변경 */
+  font-size: 24px !important;   /* 크기 조절 */
+  font-weight: 500 !important;
+}
+.swal2-popup {
+  padding: 20px !important;
+  border-radius: 20px !important;
+  background-color: #F9FAFB !important;
+}
+.swal2-title {
+  text-align: left !important;
+  font-size: 22px !important;
+  color: #222;
+  font-weight: 700;
+  padding: 20px !important;
+}
+
+.swal2-html-container {
+  padding: 20px !important;
+  text-align: left !important;
+}
+
+.swal2-html-container input::placeholder {
+  font-size: 1rem !important;
+  color: #aaa !important;
+}
+@media (max-width: 400px) {
+  .swal2-html-container input::placeholder {
+    font-size: 0.875rem !important; /* 14px 정도 */
   }
 }
 
