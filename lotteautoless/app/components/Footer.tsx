@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import footer from "/assets/footer.png";
 import Image from "next/image";
 import lotteLogo from "/assets/lotte-logo.png";
 
@@ -11,7 +10,7 @@ const Footer = () => {
       }, []);
     
     return (
-        <div className="w-[420px] h-[1500px] py-[40px] px-[16px]  border-t-2  font-sans  bg-[#F9FAFB] select-text ">
+        <div className="w-[420px] min-h-[1500px] py-[40px] px-[16px]  border-t-2  font-sans  bg-[#F9FAFB] select-text scrollbar-none ">
         {/* 상단 로고 */}
         <div className="flex items-center gap-4 mb-6">
           {/* 롯데오토리스 로고 텍스트 */}
@@ -173,7 +172,7 @@ const Footer = () => {
       승계수수료
     </span>
     <span>
-      미회수원금 × 승계수수료율(2%) × (잔여일수/총 계약일수) (최저 25만원, 최대 100만원)
+      미회수원금 × 승계수수료율(2%) × (잔여일수/총 계약일수)<br></br> (최저 25만원, 최대 100만원)
     </span>
   </div>
 </li>
@@ -202,6 +201,20 @@ const Footer = () => {
     </span>
     <span>
       반환시점의 자동차의 기대가치(혹은 중고차 시세) × 감가율의 합
+    </span>
+  </div>
+</li>
+          <li className="font-[500] text-[12px] text-[#454D54] flex">
+        <div className="w-[1em] flex justify-center">
+        <span className="text-[12px] text-[#848A90] font-[500]">·</span>
+          </div>
+        <div className="flex gap-[4px]">
+        <span className="text-[12px] text-[#848A90] font-[500] mb-1 flex-none">
+      정비 서비스
+    </span>
+    <span>
+    정비불포함/일반형/실속형/고급형 정비 중 선택 <br></br>
+    (친환경차: EV일반형/EV고급형 중 선택)
     </span>
   </div>
 </li>
@@ -238,28 +251,28 @@ const Footer = () => {
         <div className="w-full border-b border-[#DFE0E2] pb-[20px]"></div>
   
         {/* 하단 각주 */}
-        <div className="mt-8 space-y-2 text-xs text-gray-600 leading-tight">
+        <div className="mt-8 space-y-2 text-xs text-gray-600 leading-relaxed ">
   {[
     "본 상품은 여신전문금융회사인 롯데오토리스의 운용리스 상품입니다.",
-    "(주)에이원오토는 롯데오토리스 금융회사의 신차 운용리스 고객 모집 업무를 대리·중개합니다.",
+    `(주)에이원오토는 롯데오토리스 금융회사의\n 신차 운용리스 고객 모집 업무를 대리·중개합니다.`,
     "(주)에이원오토는 다수의 금융회사의 상품을 대리하거나 중개합니다.",
-    "금융상품질접판매업자로부터 금융상품 계약체결권을 부여받지 아니한 금융상품판매대리·중개업자의 경우 금융상품계약을 체결할 수 없습니다.",
-    "(주)에이원오토는 롯데오토리스 금융회사의 금융상품에 대한 계약체결 권한이 없습니다.",
-    "(주)에이원오토는 금융관계법률에 따라 등록되어 있는 금융상품판매대리·중개업자입니다.",
-    "대출 취급이 부적합할 경우(개인신용평점 낮음, 연체사유 발생 등) 대출 취급이 제한될 수 있습니다.",
-    "소비자는 금소법에 따라 해당상품 또는 서비스에 대하여 설명을 받을 권리가 있습니다.",
+    "금융상품질접판매업자로부터 금융상품 계약체결권을 부여받지 아니한\n 금융상품판매대리·중개업자의 경우 금융상품계약을 체결할 수 없습니다.",
+    "(주)에이원오토는 롯데오토리스 금융회사의 금융상품에 대한\n 계약체결 권한이 없습니다.",
+    "(주)에이원오토는 금융관계법률에 따라 등록되어 있는\n 금융상품판매대리·중개업자입니다.",
+    "대출 취급이 부적합할 경우(개인신용평점 낮음, 연체사유 발생 등)\n 대출 취급이 제한될 수 있습니다.",
+    "소비자는 금소법에 따라 해당상품 또는 서비스에 대하여\n 설명을 받을 권리가 있습니다.",
     "이자 납입일(매월)에 이자(후취)를 납입하여야 합니다.",
     "계약을 체결하기 전에 금융상품설명서와 약관을 확인하시기 바랍니다.",
-    "상환능력에 비해 리스상환금액이 과도할 경우, 귀하의 개인신용 평점이 하락할 수 있습니다.",
+    "상환능력에 비해 리스상환금액이 과도할 경우,\n 귀하의 개인신용 평점이 하락할 수 있습니다.",
     "개인신용평점 하락 시 금융거래와 관련된 불이익이 발생할 수 있습니다.",
-    "일정기간 원리금을 연체할 경우, 모든 원리금을 변제할 의무가 발생할 수 있습니다.",
+    "일정기간 원리금을 연체할 경우, 모든 원리금을 변제할 의무가\n 발생할 수 있습니다.",
     "준법감시인 사전심의 제 2025 - 000호",
     "여신금융협회 심의필 제 2025 - C1g - 000000호\n2025.00.00 ~ 2026.00.00",
     "본 상품의 일부 차종은 재고 대수가 한정되어 조기에 마감될 수 있습니다. 재고는 상담 문의를 통해 확인할 수 있습니다.",
   ].map((text, i) => (
     <div key={i} className="flex text-[#454D54] text-[12px] ">
       <div className="w-[1.1em] flex-shrink-0 flex justify-center font-[400]">※</div>
-      <div className="font-[500] whitespace-pre-line mb-[4px]">{text}</div>
+      <div className="font-[500] whitespace-pre-line mb-[4px] ">{text}</div>
     </div>
   ))}
 </div>
